@@ -1,18 +1,16 @@
 import gql from 'graphql-tag';
 
 const query = gql`
-query () {
-  things ()
-  {
-    id,
-    title,
-    headline,
-    body,
-    comments {
+query ThingsQuery {
+  things {
+      id,
+      title,
+      body,
+      comments {
         body
+      }
     }
   }
-}
 `;
 
 export default query;

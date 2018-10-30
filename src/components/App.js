@@ -3,7 +3,7 @@ import {  BrowserRouter as Router , NavLink, Route, Switch } from "react-router-
 import { Layout, Menu, Breadcrumb  } from 'antd';
 const { Header, Content, Footer } = Layout;
 
-import Feed from "./feed/Feed";
+import Feed from "./feed/Query";
 import About from "./About";
 import NotFound from "./NotFound";
 import React from "react";
