@@ -6,7 +6,6 @@ const { Header, Content, Footer } = Layout;
 import Feed from "./feed/Feed";
 import About from "./About";
 import NotFound from "./NotFound";
-import PropTypes from "prop-types";
 import React from "react";
 import { hot } from "react-hot-loader";
 import Apollo from './Apollo';
@@ -61,9 +60,5 @@ class App extends React.Component {
     );
   }
 }
-
-App.propTypes = {
-  children: PropTypes.element
-};
 
 export default hot(module)(App);

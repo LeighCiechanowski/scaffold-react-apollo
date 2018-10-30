@@ -1,21 +1,22 @@
-import React from "react";
-
+import React from 'react';
+import PropTypes from "prop-types";
 import { ApolloProvider } from "react-apollo";
-// import ApolloClient from "apollo-boost";
+import ApolloClient from "apollo-boost";
 
-// const client = new ApolloClient({
-//     uri: "http://localhost:3005"
-//   });
+const client = new ApolloClient({
+    uri: "http://localhost:3005"
+  });
 
-  const Apollo = ({children}) => {
+const Apollo = ({children}) => {
     return(
-      <div>
-    {/* // <ApolloProvider client={client}> */}
-      {children}
-      </div>
-    // </ApolloProvider>
+      <ApolloProvider client={client}>
+    <div>{ children }</div>
+    </ApolloProvider>
     )
-  };
+}
 
-  export default Apollo;
+Apollo.propTypes = {
+  children: PropTypes.element
+};
 
+export default Apollo;
