@@ -20,7 +20,7 @@ class Feed extends React.Component {
           renderItem={item => (
             <List.Item
               key={item.title}
-              actions={!this.props.loading && [<IconText type="star-o" text="156" />, <IconText type="like-o" text="156" />, <IconText type="message" text="2" />]}
+              actions={!this.props.loading && [<IconText type="star-o" text="156" />, <IconText type="like-o" text="156" />, <IconText type="message" text={item.commentsCount} />]}
             >
               <Skeleton loading={this.props.loading} active>
                 <List.Item.Meta
