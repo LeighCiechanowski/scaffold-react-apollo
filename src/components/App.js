@@ -10,8 +10,6 @@ import React from "react";
 import { hot } from "react-hot-loader";
 import Apollo from './Apollo';
 
-import Test from './Test';
-
 // This is a class-based component because the current
 // version of hot reloading won't hot reload a stateless
 // component at the top-level.
@@ -50,9 +48,7 @@ class App extends React.Component {
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
-          <Test>
             Ant Design ©2018 Created by Ant UED
-            </Test>
           </Footer>
         </Layout>
       </Router>
