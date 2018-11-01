@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from "prop-types";
 import { Skeleton, List, Icon } from 'antd';
 import 'antd/dist/antd.css';
@@ -30,10 +31,10 @@ class Feed extends React.Component {
             >
               <Skeleton loading={this.props.loading} active>
                 <List.Item.Meta
-                  title={<a href={item.href}>{item.title}</a>}
-                  description={item.body}
+                  title={<Link to={`/${item.id}`}>{item.title}</Link>}
+                  description={item.headline}
                 />
-                {item.content}
+                {/* {item.body} */}
               </Skeleton>
             </List.Item>
           )}

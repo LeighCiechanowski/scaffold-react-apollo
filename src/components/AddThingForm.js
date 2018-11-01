@@ -26,21 +26,21 @@ class AddThingForm extends React.Component {
     const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
 
     // Only show error after a field is touched.
-    const userNameError = isFieldTouched('userName') && getFieldError('userName');
+    const commentError = isFieldTouched('comment') && getFieldError('comment');
     const passwordError = isFieldTouched('password') && getFieldError('password');
     return (
       <Form layout="inline" onSubmit={this.handleSubmit}>
         <FormItem
-          validateStatus={userNameError ? 'error' : ''}
-          help={userNameError || ''}
+          validateStatus={commentError ? 'error' : ''}
+          help={commentError || ''}
         >
-          {getFieldDecorator('userName', {
-            rules: [{ required: true, message: 'Please input your username!' }],
+          {getFieldDecorator('comment', {
+            rules: [{ required: true, message: 'Please input your comment' }],
           })(
-            <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Username" />
+            <Input prefix={<Icon type="message" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Comment" />
           )}
         </FormItem>
-        <FormItem
+        {/* <FormItem
           validateStatus={passwordError ? 'error' : ''}
           help={passwordError || ''}
         >
@@ -49,14 +49,14 @@ class AddThingForm extends React.Component {
           })(
             <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
           )}
-        </FormItem>
+        </FormItem> */}
         <FormItem>
           <Button
             type="primary"
             htmlType="submit"
             disabled={hasErrors(getFieldsError())}
           >
-            Log in
+            Post comment
           </Button>
         </FormItem>
       </Form>

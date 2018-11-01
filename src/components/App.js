@@ -5,6 +5,7 @@ const { Header, Content, Footer } = Layout;
 
 import Feed from "./feed/Query";
 import About from "./About";
+import ThingQuery from './thing/Query';
 import NotFound from "./NotFound";
 import React from "react";
 import { hot } from "react-hot-loader";
@@ -29,26 +30,22 @@ class App extends React.Component {
               defaultSelectedKeys={['1']}
               style={{ lineHeight: '64px' }}
             >
-              <Menu.Item key="1"><NavLink exact to="/" activeStyle={activeStyle}>Home</NavLink></Menu.Item>
+              <Menu.Item key="1"><NavLink exact to="/" activeStyle={activeStyle}>List of Things</NavLink></Menu.Item>
               <Menu.Item key="2"><NavLink to="/about" activeStyle={activeStyle}>About</NavLink></Menu.Item>
             </Menu>
           </Header>
           <Content style={{ padding: '0 50px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>Home</Breadcrumb.Item>
-              <Breadcrumb.Item>List</Breadcrumb.Item>
-              <Breadcrumb.Item>App</Breadcrumb.Item>
-            </Breadcrumb>
             <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
               <Switch>
                 <Route exact path="/" component={Feed} />
                 <Route path="/about" component={About} />
+                <Route path="/:id" component={ThingQuery} />
                 <Route component={NotFound} />
               </Switch>
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
-            Ant Design ©2018 Created by Ant UED
+            Kuee Ltd ©2018 Created by Leigh Ciechanowski
           </Footer>
         </Layout>
       </Router>

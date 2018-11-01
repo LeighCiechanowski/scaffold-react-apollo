@@ -5,6 +5,7 @@ query FeedQuery {
   things {
       id,
       title,
+      headline,
       body,
       commentsCount
     }

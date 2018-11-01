@@ -1,12 +1,16 @@
 import gql from 'graphql-tag';
 
 const query = gql`
-query ThingQuery($id: String!) {
+query ThingQuery($id: Int!) {
   thing(id: $id) {
       id,
       title,
       body,
-      commentsCount
+      commentsCount,
+      comments {
+        id,
+        body
+      }
     }
   }
 `;
