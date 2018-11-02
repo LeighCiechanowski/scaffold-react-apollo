@@ -17,17 +17,17 @@ class AddThingForm extends React.Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        this.props.onSubmit(values.comment);
+        this.props.form.resetFields();
       }
     });
   }
 
   render() {
-    const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
+    const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched, } = this.props.form;
 
     // Only show error after a field is touched.
     const commentError = isFieldTouched('comment') && getFieldError('comment');
-    const passwordError = isFieldTouched('password') && getFieldError('password');
     return (
       <Form layout="inline" onSubmit={this.handleSubmit}>
         <FormItem
@@ -40,16 +40,6 @@ class AddThingForm extends React.Component {
             <Input prefix={<Icon type="message" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Comment" />
           )}
         </FormItem>
-        {/* <FormItem
-          validateStatus={passwordError ? 'error' : ''}
-          help={passwordError || ''}
-        >
-          {getFieldDecorator('password', {
-            rules: [{ required: true, message: 'Please input your Password!' }],
-          })(
-            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
-          )}
-        </FormItem> */}
         <FormItem>
           <Button
             type="primary"
